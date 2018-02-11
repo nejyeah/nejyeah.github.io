@@ -4,20 +4,56 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Fendrew</title>
+    <title>Relion-1.3 软件使用流程 | Fendrew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Feng Wang">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Fendrew">
-<meta property="og:url" content="http://nejyeah.github.io/index.html">
+    <meta name="description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Relion-1.3 软件使用流程">
+<meta property="og:url" content="http://nejyeah.github.io/2018/02/11/Relion-1.3-User-Guide/index.html">
 <meta property="og:site_name" content="Fendrew">
+<meta property="og:description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-classification-sample-average-10.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.8-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.8-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.92-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.92-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.4-d110.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.4-d110.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-class100-average.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort-class2d.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-crystal-struction.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-4class-choose13.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&2&3&4.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&3.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half2-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1&2.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-mrc.png">
+<meta property="og:updated_time" content="2018-02-11T06:02:15.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fendrew">
+<meta name="twitter:title" content="Relion-1.3 软件使用流程">
+<meta name="twitter:description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
+<meta name="twitter:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Fendrew" type="application/atom+xml">
@@ -70,12 +106,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2018/02/11/Relion-1.3-User-Guide/" title="Relion-1.3 软件使用流程" itemprop="url">Relion-1.3 软件使用流程</a>
@@ -89,9 +123,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网<a href="http://www2.mrc-lmb.cam.ac.uk/groups/scheres/relion13_tutorial.pdf" target="_blank" rel="noopener">relion13_tutorial</a>，这里主要介绍蛋白质3D重构的过程。<br>Relion提供了简单的GUI来方便使用,GUI是使用的<strong>fltk-1.3.0</strong>来设计的。其GUI界面如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png" alt="Relion GUI"><br>下面将采用从官网下载的数据<strong>relion13_tutorial.tar.gz</strong>来做3D 结构重构。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-转换为STAR文件"><span class="toc-number">1.</span> <span class="toc-text">1.2.2 转换为STAR文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-CTF-参数估计"><span class="toc-number"></span> <span class="toc-text">1.3 CTF 参数估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-颗粒挑选"><span class="toc-number"></span> <span class="toc-text">1.4 颗粒挑选</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-人工挑选"><span class="toc-number">1.</span> <span class="toc-text">1.3.1 人工挑选</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-半自动挑选-autopick"><span class="toc-number">2.</span> <span class="toc-text">1.3.2 半自动挑选[^autopick]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-颗粒排序-可选过程"><span class="toc-number"></span> <span class="toc-text">1.5 颗粒排序(可选过程)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步：-Reference-free-2D-class-averaging"><span class="toc-number"></span> <span class="toc-text">第二步： Reference-free 2D class averaging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2D-class-averaging-的作用"><span class="toc-number"></span> <span class="toc-text">2.1 2D class averaging 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-运行时“exceeds-stack-size”错误及解决办法"><span class="toc-number"></span> <span class="toc-text">2.2 运行时“exceeds stack size”错误及解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-运行2D-classification"><span class="toc-number"></span> <span class="toc-text">2.3 运行2D classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：-Unsupervised-3D-classification"><span class="toc-number"></span> <span class="toc-text">第三步： Unsupervised 3D classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-目的"><span class="toc-number"></span> <span class="toc-text">3.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-运行结果"><span class="toc-number"></span> <span class="toc-text">3.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四步：High-resolution-3D-refinement"><span class="toc-number"></span> <span class="toc-text">第四步：High-resolution 3D refinement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-目的"><span class="toc-number"></span> <span class="toc-text">4.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-运行结果"><span class="toc-number"></span> <span class="toc-text">4.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五步：-Postprocessing"><span class="toc-number"></span> <span class="toc-text">第五步： Postprocessing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六步：-Local-resolution-estimation"><span class="toc-number"></span> <span class="toc-text">第六步： Local-resolution estimation</span></a>
+		
+		</div>
+		
+		<p>这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网<a href="http://www2.mrc-lmb.cam.ac.uk/groups/scheres/relion13_tutorial.pdf" target="_blank" rel="noopener">relion13_tutorial</a>，这里主要介绍蛋白质3D重构的过程。<br>Relion提供了简单的GUI来方便使用,GUI是使用的<strong>fltk-1.3.0</strong>来设计的。其GUI界面如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png" alt="Relion GUI"><br>下面将采用从官网下载的数据<strong>relion13_tutorial.tar.gz</strong>来做3D 结构重构。</p>
 <p>##第一步：数据预处理</p>
 <p>###1.1 初始数据<br>给的初始数据是15张电镜下拍到的原始大图片，格式是<code>.mrc</code>的，其次还包含15个<code>.mrcs</code>的movie图片。Relion中单张图片是以<code>.mrc</code>存储的，多张图片是以<code>.mrcs</code>存储。<br>原始的<code>.mrc</code>中单张<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" target="_blank" rel="noopener">图片33_35</a>显示如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" alt="14-33-35-0-mrc"><br>原始的<code>.mrcs</code>中movie的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" target="_blank" rel="noopener">图片33_35</a>如下,可以暂时不管这个movie的图片：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" alt="此处输入图片的描述"></p>
 <p>###1.2 准备数据</p>
@@ -198,14 +239,9 @@ with errorcode 1.
 <p>[^ximdisp]: J M Smith. Ximdisp–a visualization tool to aid structure determination<br>from electron microscope images. Journal of structural biology, 125(2-<br>3):223–228, May 1999.</p>
 <p>[^xmipp]: Sjors H W Scheres, R. Nunez-Ramirez, C. O. S Sorzano, J. M Carazo,<br>and R. Marabini. Image processing for electron microscopy single-particle<br>analysis using XMIPP. Nature Protocols, 3(6):977–90, 2008.</p>
 <p>[^e2boxer]: Guang Tang, Liwei Peng, Philip R Baldwin, Deepinder S Mann, Wen Jiang,<br>Ian Rees, and Steven J Ludtke. EMAN2: an extensible image processing<br>suite for electron microscopy. Journal of Structural Biology, 157(1):38–46,<br>January 2007.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -213,88 +249,53 @@ with errorcode 1.
 
 
 
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://nejyeah.github.io/2018/02/11/Relion-1.3-User-Guide/" data-title="Relion-1.3 软件使用流程 | Fendrew" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
 
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Relion-1.3-User-Guide/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Relion-1.3-User-Guide/" data-count-type="comments">&nbsp;</a>
-	
-</div>
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T03:17:10.458Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
-	  	<span></span>
-		<a href="/2018/02/11/hello-world/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/hello-world/" data-count-type="comments">&nbsp;</a>
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/02/11/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
 	
-</div>
-
-</footer>
-
-
-    </article>
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/02/11/Relion-1.3-User-Guide/" data-title="Relion-1.3 软件使用流程" data-url="http://nejyeah.github.io/2018/02/11/Relion-1.3-User-Guide/"></div>
+</section>
 
 
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-转换为STAR文件"><span class="toc-number">1.</span> <span class="toc-text">1.2.2 转换为STAR文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-CTF-参数估计"><span class="toc-number"></span> <span class="toc-text">1.3 CTF 参数估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-颗粒挑选"><span class="toc-number"></span> <span class="toc-text">1.4 颗粒挑选</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-人工挑选"><span class="toc-number">1.</span> <span class="toc-text">1.3.1 人工挑选</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-半自动挑选-autopick"><span class="toc-number">2.</span> <span class="toc-text">1.3.2 半自动挑选[^autopick]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-颗粒排序-可选过程"><span class="toc-number"></span> <span class="toc-text">1.5 颗粒排序(可选过程)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步：-Reference-free-2D-class-averaging"><span class="toc-number"></span> <span class="toc-text">第二步： Reference-free 2D class averaging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2D-class-averaging-的作用"><span class="toc-number"></span> <span class="toc-text">2.1 2D class averaging 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-运行时“exceeds-stack-size”错误及解决办法"><span class="toc-number"></span> <span class="toc-text">2.2 运行时“exceeds stack size”错误及解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-运行2D-classification"><span class="toc-number"></span> <span class="toc-text">2.3 运行2D classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：-Unsupervised-3D-classification"><span class="toc-number"></span> <span class="toc-text">第三步： Unsupervised 3D classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-目的"><span class="toc-number"></span> <span class="toc-text">3.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-运行结果"><span class="toc-number"></span> <span class="toc-text">3.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四步：High-resolution-3D-refinement"><span class="toc-number"></span> <span class="toc-text">第四步：High-resolution 3D refinement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-目的"><span class="toc-number"></span> <span class="toc-text">4.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-运行结果"><span class="toc-number"></span> <span class="toc-text">4.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五步：-Postprocessing"><span class="toc-number"></span> <span class="toc-text">第五步： Postprocessing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六步：-Local-resolution-estimation"><span class="toc-number"></span> <span class="toc-text">第六步： Local-resolution estimation</span></a>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -416,15 +417,124 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"nejyeah"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'fengwang';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
 
 
 
@@ -501,4 +611,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
