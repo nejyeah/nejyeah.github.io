@@ -72,386 +72,101 @@
     <div id="container">
       <div id="main">
 
-   
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2018/02/11/Face Recognition by FaceNet/" title="Face Recognition by FaceNet" itemprop="url">
+  
+    <h1 itemprop="name">Face Recognition by FaceNet</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >1. 论文简介FaceNet 论文全称《FaceNet: A Unified Embedding for Face Recognition and Clustering》，2015年3月份Google出品的一篇人脸识别论文。该论文code在github上公布了源码，基于Tenso</p>
+        
     
-      <a href="/2018/02/11/Face Recognition by FaceNet/" title="Face Recognition by FaceNet" itemprop="url">Face Recognition by FaceNet</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:54.117Z" itemprop="datePublished"> 发表于 2018-02-11</time>
+    <time datetime="2018-02-11T06:05:54.117Z" itemprop="datePublished">2018-02-11</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2018/02/11/Face Detection by SSH/" title="Face Detection by SSH" itemprop="url">
+  
+    <h1 itemprop="name">Face Detection by SSH</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。
+2. 内容该论文主要采用了SSD类似结构直接做</p>
         
-        <h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1503.03832" target="_blank" rel="noopener">FaceNet</a> 论文全称《FaceNet: A Unified Embedding for Face Recognition and Clustering》，2015年3月份Google出品的一篇人脸识别论文。该论文<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">code</a>在github上公布了源码，基于Tensorflow，并且后续一直更新，更添加了center loss以及MTCNN alignment代码在里面。该方法在LFW数据集上测试结果（99.63+-0.09）到目前2017.11依然是最好的。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要解决了人脸识别问题中训练样本不可能包含所有的人脸，那么一个训练好的模型如何去识别一对未知的人脸是否是同一个人？本文提出了一种策略将每一张人脸映射成一个128维的向量，向量之间的欧式距离即代表了人脸之间的相似度，如此对于模型没有见过的人脸也可以做Face verification 和 recognition。该文章采用了metric learning方式，类似于contrastive loss，尽可能的缩小intra_class距离，放大inter_class距离，采用了triplet loss的形式。<br><img src="http://static.zybuluo.com/nej/sye9hs64b399e7r3z8mwxmxz/3-FR-FaceNet-loss-1.PNG" alt="3-FR-FaceNet-loss-1.PNG-14.1kB"><br><img src="http://static.zybuluo.com/nej/e35np9odsxu0xy3gz54srpnz/3-FR-FaceNet-triplet-1.PNG" alt="3-FR-FaceNet-triplet-1.PNG-11.4kB"><br>训练时对每一个batch，组成多个不同的3元组（即 Anchor, Positive, Negative），Positive与Anchor代表的是同一个人，Negative代表的是不同的人。Loss函数如上，采用的squear L2 loss,同时$\alpha$代表了margin距离。Loss的目的即通过网络的迭代后，同类别之间的图像欧氏距离+margin&lt;不同类别之间的距离。<br><img src="http://static.zybuluo.com/nej/72p5npal5cbbedmqmmoypcfr/3-FR-FaceNet-Net-1.PNG" alt="3-FR-FaceNet-Net-1.PNG-32.4kB"><br>实验中Batch size 大概1800,同时尽可能保证同一个人有40张图片左右。如何去穷尽的列举一个Batch 中所有的三元组将会有很多，其中某些错误标签可能会影响模型收敛。文章中选取了所有的anchor-positive pairs,在选择anchor-negative pairs上采用了soft hardest的形式，具体如下：<br><img src="http://static.zybuluo.com/nej/xdq52fgqxjvd2ftwmi984eai/3-FR-FaceNet-anchor-negative-1.PNG" alt="3-FR-FaceNet-anchor-negative-1.PNG-5.9kB"><br>对于某一对anchor-positive，选择距离大于其的所有anchor-negative 对。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Recognition by FaceNet/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Recognition by FaceNet/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+    <time datetime="2018-02-11T06:05:44.906Z" itemprop="datePublished">2018-02-11</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2018/02/11/Face Detection by MTCNN/" title="Face Detection by MTCNN" itemprop="url">
+  
+    <h1 itemprop="name">Face Detection by MTCNN</h1>
     
-      <a href="/2018/02/11/Face Detection by SSH/" title="Face Detection by SSH" itemprop="url">Face Detection by SSH</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:44.906Z" itemprop="datePublished"> 发表于 2018-02-11</time>
+     
+           <p itemprop="description" >1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在g</p>
+        
     
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1708.03979" target="_blank" rel="noopener">SSH</a>论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的<a href="https://github.com/mahyarnajibi/SSH" target="_blank" rel="noopener">code</a>开源在github上，基于pycaffe。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip connections结构，即靠前的feature map 接收野小，用于检测较小人脸，靠后的feature map接收野大，检测较大人脸。<br><img src="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG" alt="2-FD-SSH-frame-1.PNG-193.3kB"><br><img src="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG" alt="2-FD-SSH-frame-2.PNG-44.5kB"><br>在SSD基础上在feature map上做不同scale人脸的检测与回归。除此之外，模型还做了不少Inception类似的结构做分支以及合并操作，文章称为增大接收野，也就是人脸周边的context信息。<br>feature map上的anchors只有一个比例即1，K个不同的大小。正常情况下训练时feature map M1,M2,M3都可以检测并且回归所有的人脸，但是文章设计3个不同的通道是为了分别检测不同scale的人脸，如何做到这一点了？<br>“To specialize each of the three detection modules for a specific range of scales, we only back-propagate the loss for the anchors which are assigned to faces in the corresponding range. This is implemented by distributing the anchors based on their size to these three modules (i.e. smaller anchors are assigned to M1 compared to M2, and M3). An anchor is assigned to a ground-truth face if and only if it has a higher IoU than 0.5.”<br>从文章中可以看到，在计算anchors与gt的IOU区别pos 和 neg时，预先设定了3个模型能够检测的人脸大小范围，即将gt人脸按照大小分别分给3个模型，然后某个模型的anchors只与分配给它的gt face计算IOU来判定该anchor是pos or neg。其次文章采用OHEM来提高模型准确率。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Detection by SSH/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Detection by SSH/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
+    <time datetime="2018-02-11T06:05:34.692Z" itemprop="datePublished">2018-02-11</time>
+  </a>
+</section>
 
 
 
 
 
 
-   
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2018/02/11/Relion-1.3 User Guide/" title="Relion-1.3 软件使用流程" itemprop="url">
+  
+    <h1 itemprop="name">Relion-1.3 软件使用流程</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据re</p>
+        
     
-      <a href="/2018/02/11/Face Detection by MTCNN/" title="Face Detection by MTCNN" itemprop="url">Face Detection by MTCNN</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:34.692Z" itemprop="datePublished"> 发表于 2018-02-11</time>
+    <time datetime="2018-02-11T06:02:15.871Z" itemprop="datePublished">2018-02-11</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2018/02/11/Hello World/" title="Hello World" itemprop="url">
+  
+    <h1 itemprop="name">Hello World</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
         
-        <h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1604.02878" target="_blank" rel="noopener">MTCNN</a>论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文<a href="https://github.com/kpzhang93/MTCNN_face_detection_alignment" target="_blank" rel="noopener">Code</a>在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现的基于其他平台架构的，比如<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">FaceNet</a>中有一套基于Tensorflow的，当然也只有测试部分,训练部分需要自己改写。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要思想有三：</p>
-<pre><code>1. 将Face Detection 和 alignment作为muti-task在一个网络中同时优化，两者的相关性能够促进准确率的提高。
-2. 采用了cascaded multi-task 结构，3级级联结构，每一级单独训练，对人脸以及关键点的检测由粗到细逐步的优化。
-3. 采用了OHEM来提高准确率
-</code></pre><p>具体的网络结构如下：<br><img src="http://static.zybuluo.com/nej/yiosca261nknti1o85x2ca7p/1-FD-MTCNN-PNet.PNG" alt="1-FD-MTCNN-PNet.PNG-44.9kB"><br>P-Net在训练的时候输入的图片大小固定12x12x3，最后输出的feature map大小刚好是1x1，再经过不同的1x1卷积来识别不同task的输出。训练的数据都是offline的预先产生，再去训练P-Net网络。具体的产生过程整体上可以说是随机crop成不同的size，然后与gt计算IOU，根据阈值分为pos，part，neg样本，并且保证三者一定的比例，其中pos和part都还有对应的offset，其中offset值有正有负。由于采用的WiderFace数据集，该数据集没有landmard信息，因此P-Net和后续的O-Net只做了classification和bounding box regression。<br><img src="http://static.zybuluo.com/nej/3s2jsdlu25r0a84rboizrmz6/1-FD-MTCNN-test.PNG" alt="1-FD-MTCNN-test.PNG-657.3kB"><br>P-Net测试以及为后续R-Net准备数据，首先将WiderFace中的训练图片做不同ratio的scale，形成Image pyramid，然后将同一张图片的不同scale图片过P-Net,由于P-Net是一个FCN结构，并且输入的图片不再是12x12，因此最后输出的feature map也不会是1x1，而是NxN,类似于YOLO，SSD。针对同一个scale图片预测出来的所有box做一遍NMS，然后再针对同一张图片的不同scale预测出来的box做一篇NMS，得到该图片P-Net最终的输出结果，bounding box的offset矫正可以放在NMS之前也可以之后，这个需要具体的实践。<br><img src="http://static.zybuluo.com/nej/pykck0azzd2t5c0tezp8ugei/1-FD-MTCNN-RNet.PNG" alt="1-FD-MTCNN-RNet.PNG-46.7kB"><br>R-Net是在P-Net训练好的基础上，将P-Net过一遍WiderFace训练图片，得到P-Net预测的bounding box结果，与P-Net的数据预处理一样，将这些box 与 gt比较计算IOU，根据阈值分为pos，part，neg样本，并且保证三者一定的比例，其中pos和part都还有对应的offset，其中offset值有正有负。将所有的box resize到固定的24x24，训练R-Net。<br>R-Net测试过程与训练过程差不多，将P-Net得到的box结果resize到24x24，过R-Net做修正。<br>注意： 原始gt中侧脸都是采用矩形框标记，而P-Net预测出来的都是正方形的box，在计算IOU得到pos，part，neg样本时容易将侧脸框标记为neg，需要将原始的矩形框扩大成正方形框。<br><img src="http://static.zybuluo.com/nej/6joggba6i3v5gn3krnl53xmj/1-FD-MTCNN-ONet.PNG" alt="1-FD-MTCNN-ONet.PNG-57.7kB"><br>O-Net的训练以及测试过程与R-Net基本一样，唯一不同的是O-Net训练中增加了CeleA数据集的landmark进行训练，同时回归landmark点。<br>注意：在根据R-Net的输出结果为O-Net准备数据时可能会遇到负样本不够的情况，这时需要在原始图片中随机crop一些负样本。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Detection by MTCNN/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Detection by MTCNN/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Relion-1.3 User Guide/" title="Relion-1.3 软件使用流程" itemprop="url">Relion-1.3 软件使用流程</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:02:15.871Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网<a href="http://www2.mrc-lmb.cam.ac.uk/groups/scheres/relion13_tutorial.pdf" target="_blank" rel="noopener">relion13_tutorial</a>，这里主要介绍蛋白质3D重构的过程。<br>Relion提供了简单的GUI来方便使用,GUI是使用的<strong>fltk-1.3.0</strong>来设计的。其GUI界面如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png" alt="Relion GUI"><br>下面将采用从官网下载的数据<strong>relion13_tutorial.tar.gz</strong>来做3D 结构重构。</p>
-<p>##第一步：数据预处理</p>
-<p>###1.1 初始数据<br>给的初始数据是15张电镜下拍到的原始大图片，格式是<code>.mrc</code>的，其次还包含15个<code>.mrcs</code>的movie图片。Relion中单张图片是以<code>.mrc</code>存储的，多张图片是以<code>.mrcs</code>存储。<br>原始的<code>.mrc</code>中单张<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" target="_blank" rel="noopener">图片33_35</a>显示如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" alt="14-33-35-0-mrc"><br>原始的<code>.mrcs</code>中movie的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" target="_blank" rel="noopener">图片33_35</a>如下,可以暂时不管这个movie的图片：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" alt="此处输入图片的描述"></p>
-<p>###1.2 准备数据</p>
-<p>####1.2.1 STAR 文件格式简介<br>Relion的输入数据采用STAR格式，一个简单的STAR文件如下：</p>
-<pre><code>data_images
-loop_
-_rlnImageName
-_rlnDefocusU
-_rlnDefocusV
-_rlnDefocusAngle
-_rlnVoltage
-_rlnAmplitudeContrast
-_rlnSphericalAberration
-000001@/lmb/home/scheres/data/VP7/all_images.mrcs 13538 13985 109.45 300 0.15 2
-000002@/lmb/home/scheres/data/VP7/all_images.mrcs 13293 13796 109.45 300 0.15 2
-000003@/lmb/home/scheres/data/VP7/all_images.mcrs 13626 14085 109.45 300 0.15 2
-</code></pre><p><code>data_</code>代表了一个data block的开始，STAR文件可以包含多个 data block。<br><code>loop_</code>后面接多个labels,相当于列的名称。<br><code>_rlnImageName</code>,<code>_rlnDefocusU</code>等等这几个以<code>_</code>开头的代表了 Label name. Relion有一套自己定义的一些Label name,可以通过命令<code>relion_refine --print_metadata_labels</code>来察看其定义的一些Label name的含义。<br>最后面的3行数据就代表了各个labels的值。</p>
-<h4 id="1-2-2-转换为STAR文件"><a href="#1-2-2-转换为STAR文件" class="headerlink" title="1.2.2 转换为STAR文件"></a>1.2.2 转换为STAR文件</h4><p>使用Relion 中<code>Micrograph inspection</code>功能，设置好各种参数后就可以run执行，其对应的command如下：</p>
-<blockquote>
-<p>> `which relion_manualpick` –i “Micrographs/*.mrc” –o all_micrographs.star –pickname manual –scale 0.2 –sigma_contrast 3 –black 0 –white 0 –lowpass 20 –angpix 3.5 –ctf_scale 1 –particle_diameter 200 &amp;</p>
-</blockquote>
-<p>输出文件：all_micrographs.star</p>
-<h3 id="1-3-CTF-参数估计"><a href="#1-3-CTF-参数估计" class="headerlink" title="1.3 CTF 参数估计"></a>1.3 CTF 参数估计</h3><p>Relion是直接调用软件CTFFIND3来并行的计算每一个micrographs的 Contrast Transfer Function的参数。其对应的command命令如下：</p>
-<blockquote>
-<p>$ `which relion_run_ctffind` –i “all_micrographs.star” –o “all_micrographs_ctf.star” –ctfWin -1 –CS 2 –HT 300 –AmpCnst 0.1 –XMAG 40000 –DStep 14 –Box 512 –ResMin 100 –ResMax 7 –dFMin 5000 –dFMax 50000 –FStep 500 –dAst 0 –ctffind3_exe “/home/nej/wf/ctffind/ctffind –omp-num-threads 1 –old-school-input”</p>
-</blockquote>
-<p>输入： all_micrographs.star<br>输出： all_micrographs_ctf.star<br>耗时： 单进程 27min</p>
-<h3 id="1-4-颗粒挑选"><a href="#1-4-颗粒挑选" class="headerlink" title="1.4 颗粒挑选"></a>1.4 颗粒挑选</h3><h4 id="1-3-1-人工挑选"><a href="#1-3-1-人工挑选" class="headerlink" title="1.3.1 人工挑选"></a>1.3.1 人工挑选</h4><p>Relion提供了人工挑选的功能，其次还支持其他软件挑选结果的格式支持，例如：</p>
-<blockquote>
-<ul>
-<li>coordinate file formate for Jude Short`s Ximdisp<a href="with any extension">^ximdisp</a></li>
-<li>XMIPP-2.4<a href="with any extension">^xmipp</a></li>
-<li>Steven Luditke`s e2boxer.py<a href="with a . box extension">^e2boxer</a></li>
-</ul>
-</blockquote>
-<h4 id="1-3-2-半自动挑选-autopick"><a href="#1-3-2-半自动挑选-autopick" class="headerlink" title="1.3.2 半自动挑选[^autopick]"></a>1.3.2 半自动挑选[^autopick]</h4><p>半自动挑选的简单流程如下：</p>
-<ol>
-<li>人工挑选一定数量的粒子</li>
-<li>对人工挑选出来的粒子做 <strong>2D classification</strong>,即聚类，取每个类 averaged image 作为 Auto-picking的 templates</li>
-<li>按一定的相似性比较来自动挑选</li>
-</ol>
-<p><strong>step1:</strong><br>人工挑选，上一步已做。<br><strong>step2:</strong><br>采用上一步manual pick的粒子，进行 <strong>2D classification</strong>.</p>
-<blockquote>
-<ul>
-<li>Input：particles_manual.star</li>
-<li>Number of Classes: 10</li>
-<li>Number of particles: about 1000</li>
-<li>time cost: 18 min (i7-4930k,3.4GZ,1 cpu,6 cpu cores,12 processors)，MPI 采用11个进程，每个进程采用1个线程。</li>
-</ul>
-</blockquote>
-<p>产生的10个类<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-classification-sample-average-10.png" target="_blank" rel="noopener">average图</a>如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-classification-sample-average-10.png" alt="此处输入图片的描述"><br>从中挑选较好的类作为模版。</p>
-<p><strong>step3:</strong><br>在进行全局的启动挑选之前，需要优化两个auto-picking所需的参数：<br><strong>Picking threshold:</strong><br><strong>Minimum inter-particle distance:</strong><br>选取少量有代表性的Micrographs来对这两个参数进行评估优化。选择<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" target="_blank" rel="noopener">*_33_35_0.mrc</a>和<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-57-34-0-mrc.png" target="_blank" rel="noopener">*_57_34_0.mrc</a>。<br>初始值 <code>Picking threshold = 0.8</code>,<code>Minimum inter-particle distance = 200</code>. 并且 <code>Write FOM map ? Yes</code></p>
-<blockquote>
-<ul>
-<li>input: <em>_33_35_0.mrc and </em>_57_34_0.mrc</li>
-<li>time cost : 4 min</li>
-</ul>
-</blockquote>
-<p>因为有IO 读写，所以这里只能单线程的跑，以防指IO 冲突错误。<br>结果如下:</p>
-<blockquote>
-<p>Picking threshold = 0.8 , Minimum inter-particle distance = 200</p>
-</blockquote>
-<p>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.8-d200.png" target="_blank" rel="noopener">*_33_35</a>) = 175<br>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.8-d200.png" target="_blank" rel="noopener">*_57_34</a>) = 212<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.8-d200.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.8-d200.png" alt="此处输入图片的描述"><br>调节 Picking threshold = 0.92 , Minimum inter-particle distance = 200，<br>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.92-d200.png" target="_blank" rel="noopener">*_33_35</a>) = 170<br>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.92-d200.png" target="_blank" rel="noopener">*_57_34</a>) = 175<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.92-d200.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.92-d200.png" alt="此处输入图片的描述"><br>调节 Picking threshold = 0.4 , Minimum inter-particle distance = 110,<br>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.4-d110.png" target="_blank" rel="noopener">*_33_35</a>) = 610<br>number(<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.4-d110.png" target="_blank" rel="noopener">*_57_34</a>) = 685<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.4-d110.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.4-d110.png" alt="此处输入图片的描述"><br>调节好参数后就可以对所有的Micrographs来进行挑选，这个时候就不需要将FOM maps写下来了。只需跑一次就完了。</p>
-<p>对所有的图片进行<strong>Auto-picking</strong>.设置参数：Picking threshold = 0.4 , Minimum inter-particle distance = 110。这里可以多进程跑，但是最大的MPI进程数就是Micrographs的数量。也就是说这里并行的策略是基于文件级别的。</p>
-<blockquote>
-<ul>
-<li>input:     all_micrographs_ctf.star</li>
-<li>time cost: 6.2 min (15 process)</li>
-</ul>
-</blockquote>
-<p>然后再根据生成的粒子坐标文件将粒子提取出来。</p>
-<h3 id="1-5-颗粒排序-可选过程"><a href="#1-5-颗粒排序-可选过程" class="headerlink" title="1.5 颗粒排序(可选过程)"></a>1.5 颗粒排序(可选过程)</h3><p>对已经挑出来的粒子<code>particles_autopick.star</code>进行排序，排序的reference是<code>manual_7classes.star</code>，应该是对粒子与那写模版做一个距离比较，然后按照此距离来排序。通过这个步骤可以进一步的对颗粒进行挑选，剔除距离远的粒子。最后挑选出来的粒子存储在：Particles_autopick_sort.star,其<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort.png" target="_blank" rel="noopener">图片</a>显示如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort.png" alt="此处输入图片的描述"></p>
-<h2 id="第二步：-Reference-free-2D-class-averaging"><a href="#第二步：-Reference-free-2D-class-averaging" class="headerlink" title="第二步： Reference-free 2D class averaging"></a>第二步： Reference-free 2D class averaging</h2><h3 id="2-1-2D-class-averaging-的作用"><a href="#2-1-2D-class-averaging-的作用" class="headerlink" title="2.1 2D class averaging 的作用"></a>2.1 2D class averaging 的作用</h3><p>虽然前面数据预处理部分花了很大的精力来挑选好的颗粒，剔除 bad particles，使用 manually supervising the auto-picking results and sorting the particles.但是还是有一些bad particles.采用2D classification 来进一步剔除这些粒子图片，因为这种bad particles在进行聚类时会被聚到相对粒子数较少的类，且average出来的结果并不很好。</p>
-<h3 id="2-2-运行时“exceeds-stack-size”错误及解决办法"><a href="#2-2-运行时“exceeds-stack-size”错误及解决办法" class="headerlink" title="2.2 运行时“exceeds stack size”错误及解决办法"></a>2.2 运行时“exceeds stack size”错误及解决办法</h3><p>使用<code>2D classification</code>功能,设置成process =11 , thread =1 memory=1GB/thread和 process = 5 , thread =1 memory=2GB/thread都报错如下：</p>
-<pre><code> Estimating initial noise spectra 
-000/??? sec ~~(,_,&quot;&gt;                                                          [o   2/  60 sec ..~~(,_,&quot;&gt;readMRC: Image number 600 exceeds stack size 557
-File: ./src/rwMRC.h line: 189
---------------------------------------------------------------------------
-MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD 
-with errorcode 1.
-</code></pre><p>从上面错误内容来看，貌似是应为内存不够导致读取图片的时候内存溢出。不管在呢么设置，即使设置成单进程线程也报错。仔细查了下数据，发现教程给的sort之后的数据和我自动扣取下来不匹配，例如在<code>particles_autopick_sort.star</code>中现实有超过600个颗粒是从44_07和55_40中提取的，结果我察看自己自动提取的这两个star文件，发现，44_07只有578个颗粒，55_40只有593个颗粒，所以这个都去数据是就会有溢出的错误。<br>解决办法是采用它提供的自动pick出来的star坐标文件，再重新提取一下颗粒，自己auto-pick可能中间哪设置错了导致提取的和它不同。</p>
-<h3 id="2-3-运行2D-classification"><a href="#2-3-运行2D-classification" class="headerlink" title="2.3 运行2D classification"></a>2.3 运行2D classification</h3><blockquote>
-<ul>
-<li>input: particles_autopick_sort.star (颗粒图片数量9120)</li>
-<li>class number: 100</li>
-<li>time cost: 11h30min (MPI processor= 12,threads=1,memory = 1GB/thread)</li>
-</ul>
-</blockquote>
-<p>聚类后生成了100个类,从这些类中挑选出所有 nice-looking classes, 将这些good classes 包含的所有粒子都存储到<code>particles_autopick_sort_class2d.star</code>中。这个过程可以多次跑来剔除bad particles.<br>100个类的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-class100-average.png" target="_blank" rel="noopener">average图</a>如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-class100-average.png" alt="此处输入图片的描述"><br>剔除不好的类之后(9120 -&gt; 8914 particles)得到的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort-class2d.png" target="_blank" rel="noopener">particles图片</a>如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort-class2d.png" alt="此处输入图片的描述"></p>
-<h2 id="第三步：-Unsupervised-3D-classification"><a href="#第三步：-Unsupervised-3D-classification" class="headerlink" title="第三步： Unsupervised 3D classification"></a>第三步： Unsupervised 3D classification</h2><h3 id="3-1-目的"><a href="#3-1-目的" class="headerlink" title="3.1 目的"></a>3.1 目的</h3><h3 id="3-2-运行结果"><a href="#3-2-运行结果" class="headerlink" title="3.2 运行结果"></a>3.2 运行结果</h3><p>首先是需要一个初始的3D 模型toturial中给了一个beta-galactosidase的低分辨率模型<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png" target="_blank" rel="noopener">3i3e_lp50.mrc</a>，该模型是由其高分辨率的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-crystal-struction.png" target="_blank" rel="noopener">crystal structure</a>产生的。<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-crystal-struction.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png" alt="此处输入图片的描述"></p>
-<blockquote>
-<p>input: particles_autopick_sort_class2d.star(8914 particles)<br>Number of Classes : 4<br>Reference map: <a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png" target="_blank" rel="noopener">3i3e_lp50.mrc</a><br>Number of iteration: 25</p>
-</blockquote>
-<p>迭代25次后生成了4个3d model类,可以看其2D slices图或3D model图。<br>其四个类对应的slices图如下:<br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-mrc.png" target="_blank" rel="noopener">class001</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-mrc.png" target="_blank" rel="noopener">class002</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-mrc.png" target="_blank" rel="noopener">class003</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-mrc.png" target="_blank" rel="noopener">class004</a><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-mrc.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-mrc.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-mrc.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-mrc.png" alt="此处输入图片的描述"></p>
-<p>其四个类对应的3D modle图如下：<br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-model.png" target="_blank" rel="noopener">3D model class001</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-model.png" target="_blank" rel="noopener">3D model class002</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-model.png" target="_blank" rel="noopener">3D model class003</a><br><a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-model.png" target="_blank" rel="noopener">3D model class004</a><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-model.png" alt="此处输入图片的描述"></p>
-<p>此时类似于2D聚类一样需要从中挑选较好的类来继续做3D 重构。<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-4class-choose13.png" target="_blank" rel="noopener">class average图片</a>如下,挑选第一类和第三类,将其包含的particles(8194 -&gt; 6495 particles) 存储到<strong>particles_autopick_sort_class2d_class3d.star</strong>：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-4class-choose13.png" alt="此处输入图片的描述"><br>下面将<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&amp;2&amp;3&amp;4.png" target="_blank" rel="noopener">class1,2,3,4</a> 的3d model 结合在一起 以及将<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&amp;3.png" target="_blank" rel="noopener">class 1,3</a>结合在一起显示如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&amp;2&amp;3&amp;4.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&amp;3.png" alt="此处输入图片的描述"></p>
-<h2 id="第四步：High-resolution-3D-refinement"><a href="#第四步：High-resolution-3D-refinement" class="headerlink" title="第四步：High-resolution 3D refinement"></a>第四步：High-resolution 3D refinement</h2><h3 id="4-1-目的"><a href="#4-1-目的" class="headerlink" title="4.1 目的"></a>4.1 目的</h3><h3 id="4-2-运行结果"><a href="#4-2-运行结果" class="headerlink" title="4.2 运行结果"></a>4.2 运行结果</h3><p>当按照以上步骤挑选出来了 a subset of suffient homogeneity 后，就可以进行 3D auto-refine procedure.采用 gold-standard Fourier Shell Correlation(FSC)来计算最后的重构结果，同时防止过拟合。</p>
-<blockquote>
-<p>input: particles_autopick_sort_class2d_class3d.star(6495 particles)<br>reference: <a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-model.png" target="_blank" rel="noopener">class003</a> or <a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png" target="_blank" rel="noopener">3i3e_lp50A</a></p>
-</blockquote>
-<p>MPI并行的策略是 1个进程作为master，其他进程分成两部分，分别来处理两部分Random分开的数据集，使用FSC策略。所以最好MPI进程数目为奇数。<br>数据初始迭代的时候会分为两部分单独的进行3D重构，到最后一次迭代时连个模型会joined together，然后明显的提高精度。下面将dispaly最后一次迭代之前的两部分产生的模型,将依次展示：<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1-model.png" target="_blank" rel="noopener">half1的模型</a>，<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half2-model.png" target="_blank" rel="noopener">half2的模型</a>，<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1&amp;2.png" target="_blank" rel="noopener">half1&amp;half2的模型</a><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half2-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1&amp;2.png" alt="此处输入图片的描述"></p>
-<p>最后一次迭代后生成的模型<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-model.png" target="_blank" rel="noopener">class001-model</a>以及其slices图<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-mrc.png" target="_blank" rel="noopener">class001-slices</a>如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-model.png" alt="此处输入图片的描述"><br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-mrc.png" alt="此处输入图片的描述"></p>
-<h2 id="第五步：-Postprocessing"><a href="#第五步：-Postprocessing" class="headerlink" title="第五步： Postprocessing"></a>第五步： Postprocessing</h2><h2 id="第六步：-Local-resolution-estimation"><a href="#第六步：-Local-resolution-estimation" class="headerlink" title="第六步： Local-resolution estimation"></a>第六步： Local-resolution estimation</h2><p>[^autopick]: Sjors H.W. Scheres, Semi-automated selection of cryo-EM particles in RELION-1.3, Journal of Structural Biology, Volume 189, Issue 2, February 2015, Pages 114-122, ISSN 1047-8477</p>
-<p>[^ximdisp]: J M Smith. Ximdisp–a visualization tool to aid structure determination<br>from electron microscope images. Journal of structural biology, 125(2-<br>3):223–228, May 1999.</p>
-<p>[^xmipp]: Sjors H W Scheres, R. Nunez-Ramirez, C. O. S Sorzano, J. M Carazo,<br>and R. Marabini. Image processing for electron microscopy single-particle<br>analysis using XMIPP. Nature Protocols, 3(6):977–90, 2008.</p>
-<p>[^e2boxer]: Guang Tang, Liwei Peng, Philip R Baldwin, Deepinder S Mann, Wen Jiang,<br>Ian Rees, and Steven J Ludtke. EMAN2: an extensible image processing<br>suite for electron microscopy. Journal of Structural Biology, 157(1):38–46,<br>January 2007.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Relion-1.3 User Guide/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Relion-1.3 User Guide/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Hello World/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T03:17:10.458Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Hello World/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Hello World/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
+    <time datetime="2018-02-11T03:17:10.458Z" itemprop="datePublished">2018-02-11</time>
+  </a>
+</section>
 
 
 
@@ -469,10 +184,9 @@ with errorcode 1.
   
 <div class="github-card">
 <p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="nejyeah" data-width="220" data-height="119" data-theme="medium">
+<div class="github-card" data-github="nejyeah" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
-  </div>
 
 
 
@@ -494,6 +208,12 @@ with errorcode 1.
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
 </aside>
 </div>
     </div>
@@ -506,8 +226,8 @@ with errorcode 1.
 	
 	
 	<section class="info">
-		<p> A master student in HUST. <br/>
-			Looking for a Ph.D. program offer in CS.</p>
+		<p> An engineer in Deep Learning, Netease. <br/>
+			Looking for a ph.D. program in CS</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
@@ -587,6 +307,8 @@ $(document).ready(function(){
   });
 });
 </script>
+
+
 
 
 
