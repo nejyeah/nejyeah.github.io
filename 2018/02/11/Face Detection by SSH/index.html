@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Fendrew</title>
+    <title>Face Detection by SSH | Fendrew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Feng Wang">
     
 
     
-    <meta name="description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+    <meta name="description" content="1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip conne">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fendrew">
+<meta property="og:title" content="Face Detection by SSH">
 <meta property="og:url" content="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/index.html">
 <meta property="og:site_name" content="Fendrew">
-<meta property="og:description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+<meta property="og:description" content="1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip conne">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG">
 <meta property="og:image" content="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG">
-<meta property="og:updated_time" content="2018-02-11T06:05:44.932Z">
+<meta property="og:updated_time" content="2018-02-11T06:10:26.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fendrew">
-<meta name="twitter:description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+<meta name="twitter:title" content="Face Detection by SSH">
+<meta name="twitter:description" content="1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip conne">
 <meta name="twitter:image" content="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG">
 
     
@@ -83,7 +83,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/11/Face Detection by SSH/" title="" itemprop="url"></a>
+      <a href="/2018/02/11/Face Detection by SSH/" title="Face Detection by SSH" itemprop="url">Face Detection by SSH</a>
   </h1>
   <p class="article-author">By
        
@@ -99,13 +99,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-SSH"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">2.</span> <span class="toc-text">2. 内容</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Face-Detection-by-SSH"><a href="#Face-Detection-by-SSH" class="headerlink" title="Face: Detection by SSH"></a>Face: Detection by SSH</h1><p>标签（空格分隔）： paper</p>
-<hr>
-<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1708.03979" target="_blank" rel="noopener">SSH</a>论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的<a href="https://github.com/mahyarnajibi/SSH" target="_blank" rel="noopener">code</a>开源在github上，基于pycaffe。</p>
+		<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1708.03979" target="_blank" rel="noopener">SSH</a>论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的<a href="https://github.com/mahyarnajibi/SSH" target="_blank" rel="noopener">code</a>开源在github上，基于pycaffe。</p>
 <h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip connections结构，即靠前的feature map 接收野小，用于检测较小人脸，靠后的feature map接收野大，检测较大人脸。<br><img src="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG" alt="2-FD-SSH-frame-1.PNG-193.3kB"><br><img src="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG" alt="2-FD-SSH-frame-2.PNG-44.5kB"><br>在SSD基础上在feature map上做不同scale人脸的检测与回归。除此之外，模型还做了不少Inception类似的结构做分支以及合并操作，文章称为增大接收野，也就是人脸周边的context信息。<br>feature map上的anchors只有一个比例即1，K个不同的大小。正常情况下训练时feature map M1,M2,M3都可以检测并且回归所有的人脸，但是文章设计3个不同的通道是为了分别检测不同scale的人脸，如何做到这一点了？<br>“To specialize each of the three detection modules for a specific range of scales, we only back-propagate the loss for the anchors which are assigned to faces in the corresponding range. This is implemented by distributing the anchors based on their size to these three modules (i.e. smaller anchors are assigned to M1 compared to M2, and M3). An anchor is assigned to a ground-truth face if and only if it has a higher IoU than 0.5.”<br>从文章中可以看到，在计算anchors与gt的IOU区别pos 和 neg时，预先设定了3个模型能够检测的人脸大小范围，即将gt人脸按照大小分别分给3个模型，然后某个模型的anchors只与分配给它的gt face计算IOU来判定该anchor是pos or neg。其次文章采用OHEM来提高模型准确率。</p>
   
 	</div>
@@ -119,7 +117,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/" data-title="Fendrew" data-tsina="" class="share clearfix">
+	  <div data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/" data-title="Face Detection by SSH | Fendrew" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,18 +131,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/02/11/Face Recognition by FaceNet/" title="">
+ <a href="/2018/02/11/Face Recognition by FaceNet/" title="Face Recognition by FaceNet">
   <strong>上一篇：</strong><br/>
   <span>
-  (no title)</span>
+  Face Recognition by FaceNet</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/02/11/Face Detection by MTCNN/"  title="">
+<a href="/2018/02/11/Face Detection by MTCNN/"  title="Face Detection by MTCNN">
  <strong>下一篇：</strong><br/> 
- <span>(no title)
+ <span>Face Detection by MTCNN
 </span>
 </a>
 </div>
@@ -153,7 +151,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2018/02/11/Face Detection by SSH/" data-title="" data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/"></div>
+	<div class="ds-thread" data-thread-key="2018/02/11/Face Detection by SSH/" data-title="Face Detection by SSH" data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/"></div>
 </section>
 
 
@@ -169,7 +167,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-SSH"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">2.</span> <span class="toc-text">2. 内容</span></a></li></ol>
  
   </div>
 

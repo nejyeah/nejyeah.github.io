@@ -4,28 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Fendrew</title>
+    <title>Face Detection by MTCNN | Fendrew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Feng Wang">
     
 
     
-    <meta name="description" content="Face: Detection by MTCNN标签（空格分隔）： paper  1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及M">
+    <meta name="description" content="1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fendrew">
+<meta property="og:title" content="Face Detection by MTCNN">
 <meta property="og:url" content="http://nejyeah.github.io/2018/02/11/Face Detection by MTCNN/index.html">
 <meta property="og:site_name" content="Fendrew">
-<meta property="og:description" content="Face: Detection by MTCNN标签（空格分隔）： paper  1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及M">
+<meta property="og:description" content="1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://static.zybuluo.com/nej/yiosca261nknti1o85x2ca7p/1-FD-MTCNN-PNet.PNG">
 <meta property="og:image" content="http://static.zybuluo.com/nej/3s2jsdlu25r0a84rboizrmz6/1-FD-MTCNN-test.PNG">
 <meta property="og:image" content="http://static.zybuluo.com/nej/pykck0azzd2t5c0tezp8ugei/1-FD-MTCNN-RNet.PNG">
 <meta property="og:image" content="http://static.zybuluo.com/nej/6joggba6i3v5gn3krnl53xmj/1-FD-MTCNN-ONet.PNG">
-<meta property="og:updated_time" content="2018-02-11T06:05:34.751Z">
+<meta property="og:updated_time" content="2018-02-11T06:11:00.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fendrew">
-<meta name="twitter:description" content="Face: Detection by MTCNN标签（空格分隔）： paper  1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及M">
+<meta name="twitter:title" content="Face Detection by MTCNN">
+<meta name="twitter:description" content="1. 论文简介MTCNN论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文Code在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现">
 <meta name="twitter:image" content="http://static.zybuluo.com/nej/yiosca261nknti1o85x2ca7p/1-FD-MTCNN-PNet.PNG">
 
     
@@ -85,7 +85,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/11/Face Detection by MTCNN/" title="" itemprop="url"></a>
+      <a href="/2018/02/11/Face Detection by MTCNN/" title="Face Detection by MTCNN" itemprop="url">Face Detection by MTCNN</a>
   </h1>
   <p class="article-author">By
        
@@ -101,13 +101,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-MTCNN"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by MTCNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">2.</span> <span class="toc-text">2. 内容</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Face-Detection-by-MTCNN"><a href="#Face-Detection-by-MTCNN" class="headerlink" title="Face: Detection by MTCNN"></a>Face: Detection by MTCNN</h1><p>标签（空格分隔）： paper</p>
-<hr>
-<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1604.02878" target="_blank" rel="noopener">MTCNN</a>论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文<a href="https://github.com/kpzhang93/MTCNN_face_detection_alignment" target="_blank" rel="noopener">Code</a>在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现的基于其他平台架构的，比如<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">FaceNet</a>中有一套基于Tensorflow的，当然也只有测试部分,训练部分需要自己改写。</p>
+		<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1604.02878" target="_blank" rel="noopener">MTCNN</a>论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文<a href="https://github.com/kpzhang93/MTCNN_face_detection_alignment" target="_blank" rel="noopener">Code</a>在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现的基于其他平台架构的，比如<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">FaceNet</a>中有一套基于Tensorflow的，当然也只有测试部分,训练部分需要自己改写。</p>
 <h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要思想有三：</p>
 <pre><code>1. 将Face Detection 和 alignment作为muti-task在一个网络中同时优化，两者的相关性能够促进准确率的提高。
 2. 采用了cascaded multi-task 结构，3级级联结构，每一级单独训练，对人脸以及关键点的检测由粗到细逐步的优化。
@@ -125,7 +123,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://nejyeah.github.io/2018/02/11/Face Detection by MTCNN/" data-title="Fendrew" data-tsina="" class="share clearfix">
+	  <div data-url="http://nejyeah.github.io/2018/02/11/Face Detection by MTCNN/" data-title="Face Detection by MTCNN | Fendrew" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -139,10 +137,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/02/11/Face Detection by SSH/" title="">
+ <a href="/2018/02/11/Face Detection by SSH/" title="Face Detection by SSH">
   <strong>上一篇：</strong><br/>
   <span>
-  (no title)</span>
+  Face Detection by SSH</span>
 </a>
 </div>
 
@@ -159,7 +157,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2018/02/11/Face Detection by MTCNN/" data-title="" data-url="http://nejyeah.github.io/2018/02/11/Face Detection by MTCNN/"></div>
+	<div class="ds-thread" data-thread-key="2018/02/11/Face Detection by MTCNN/" data-title="Face Detection by MTCNN" data-url="http://nejyeah.github.io/2018/02/11/Face Detection by MTCNN/"></div>
 </section>
 
 
@@ -175,7 +173,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-MTCNN"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by MTCNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">2.</span> <span class="toc-text">2. 内容</span></a></li></ol>
  
   </div>
 
