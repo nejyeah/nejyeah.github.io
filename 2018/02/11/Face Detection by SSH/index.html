@@ -1,0 +1,490 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Fendrew</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Feng Wang">
+    
+
+    
+    <meta name="description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fendrew">
+<meta property="og:url" content="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/index.html">
+<meta property="og:site_name" content="Fendrew">
+<meta property="og:description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG">
+<meta property="og:image" content="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG">
+<meta property="og:updated_time" content="2018-02-11T06:05:44.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fendrew">
+<meta name="twitter:description" content="Face: Detection by SSH标签（空格分隔）： paper  1. 论文简介SSH论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的code开源在github上，基于pycaffe。 2. 内容该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTC">
+<meta name="twitter:image" content="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Fendrew" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Fendrew" title="Fendrew"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Fendrew">Fendrew</a></h1>
+				<h2 class="blog-motto">enjoy learning</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/11/Face Detection by SSH/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
+		
+  <p class="article-time">
+    <time datetime="2018-02-11T06:05:44.906Z" itemprop="datePublished"> 发表于 2018-02-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-SSH"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Face-Detection-by-SSH"><a href="#Face-Detection-by-SSH" class="headerlink" title="Face: Detection by SSH"></a>Face: Detection by SSH</h1><p>标签（空格分隔）： paper</p>
+<hr>
+<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1708.03979" target="_blank" rel="noopener">SSH</a>论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的<a href="https://github.com/mahyarnajibi/SSH" target="_blank" rel="noopener">code</a>开源在github上，基于pycaffe。</p>
+<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip connections结构，即靠前的feature map 接收野小，用于检测较小人脸，靠后的feature map接收野大，检测较大人脸。<br><img src="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG" alt="2-FD-SSH-frame-1.PNG-193.3kB"><br><img src="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG" alt="2-FD-SSH-frame-2.PNG-44.5kB"><br>在SSD基础上在feature map上做不同scale人脸的检测与回归。除此之外，模型还做了不少Inception类似的结构做分支以及合并操作，文章称为增大接收野，也就是人脸周边的context信息。<br>feature map上的anchors只有一个比例即1，K个不同的大小。正常情况下训练时feature map M1,M2,M3都可以检测并且回归所有的人脸，但是文章设计3个不同的通道是为了分别检测不同scale的人脸，如何做到这一点了？<br>“To specialize each of the three detection modules for a specific range of scales, we only back-propagate the loss for the anchors which are assigned to faces in the corresponding range. This is implemented by distributing the anchors based on their size to these three modules (i.e. smaller anchors are assigned to M1 compared to M2, and M3). An anchor is assigned to a ground-truth face if and only if it has a higher IoU than 0.5.”<br>从文章中可以看到，在计算anchors与gt的IOU区别pos 和 neg时，预先设定了3个模型能够检测的人脸大小范围，即将gt人脸按照大小分别分给3个模型，然后某个模型的anchors只与分配给它的gt face计算IOU来判定该anchor是pos or neg。其次文章采用OHEM来提高模型准确率。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/" data-title="Fendrew" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/02/11/Face Recognition by FaceNet/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/02/11/Face Detection by MTCNN/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/02/11/Face Detection by SSH/" data-title="" data-url="http://nejyeah.github.io/2018/02/11/Face Detection by SSH/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Face-Detection-by-SSH"><span class="toc-number">1.</span> <span class="toc-text">Face: Detection by SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-论文简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. 论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容"><span class="toc-number">1.2.</span> <span class="toc-text">2. 内容</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="nejyeah" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> A master student in HUST. <br/>
+			Looking for a Ph.D. program offer in CS.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/nejyeah" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:feng_wang@hust.edu.cn" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Feng Wang">Feng Wang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"nejyeah"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'fengwang';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', '', '');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84dd43b0573fc9dc08dc6020e25f85e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

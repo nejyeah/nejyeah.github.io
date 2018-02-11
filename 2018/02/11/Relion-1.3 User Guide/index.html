@@ -4,20 +4,56 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Fendrew</title>
+    <title>Relion-1.3 软件使用流程 | Fendrew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Feng Wang">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Fendrew">
-<meta property="og:url" content="http://nejyeah.github.io/index.html">
+    <meta name="description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Relion-1.3 软件使用流程">
+<meta property="og:url" content="http://nejyeah.github.io/2018/02/11/Relion-1.3 User Guide/index.html">
 <meta property="og:site_name" content="Fendrew">
+<meta property="og:description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-classification-sample-average-10.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.8-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.8-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.92-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.92-d200.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-33-35-t0.4-d110.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-autopick-57-34-t0.4-d110.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-2D-class100-average.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-particles-autopick-sort-class2d.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-crystal-struction.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-Initial-model-3I3E-50A.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-mrc.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class001-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class002-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class003-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class004-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-4class-choose13.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&2&3&4.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-class3d-it025-class1&3.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half2-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-it21-half1&2.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-model.png">
+<meta property="og:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/S-refine3d-class001-mrc.png">
+<meta property="og:updated_time" content="2018-02-11T06:02:15.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fendrew">
+<meta name="twitter:title" content="Relion-1.3 软件使用流程">
+<meta name="twitter:description" content="这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网relion13_tutorial，这里主要介绍蛋白质3D重构的过程。Relion提供了简单的GUI来方便使用,GUI是使用的fltk-1.3.0来设计的。其GUI界面如下：下面将采用从官网下载的数据relion13_tutorial.tar.gz来做3D 结构重构。 ##第一步：数据预处理 ###1.1 初始数据给的初始">
+<meta name="twitter:image" content="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Fendrew" type="application/atom+xml">
@@ -70,184 +106,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Face Recognition by FaceNet/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:54.117Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Face-Recognition-by-FaceNet"><a href="#Face-Recognition-by-FaceNet" class="headerlink" title="Face: Recognition by FaceNet"></a>Face: Recognition by FaceNet</h1><p>标签（空格分隔）： paper</p>
-<hr>
-<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1503.03832" target="_blank" rel="noopener">FaceNet</a> 论文全称《FaceNet: A Unified Embedding for Face Recognition and Clustering》，2015年3月份Google出品的一篇人脸识别论文。该论文<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">code</a>在github上公布了源码，基于Tensorflow，并且后续一直更新，更添加了center loss以及MTCNN alignment代码在里面。该方法在LFW数据集上测试结果（99.63+-0.09）到目前2017.11依然是最好的。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要解决了人脸识别问题中训练样本不可能包含所有的人脸，那么一个训练好的模型如何去识别一对未知的人脸是否是同一个人？本文提出了一种策略将每一张人脸映射成一个128维的向量，向量之间的欧式距离即代表了人脸之间的相似度，如此对于模型没有见过的人脸也可以做Face verification 和 recognition。该文章采用了metric learning方式，类似于contrastive loss，尽可能的缩小intra_class距离，放大inter_class距离，采用了triplet loss的形式。<br><img src="http://static.zybuluo.com/nej/sye9hs64b399e7r3z8mwxmxz/3-FR-FaceNet-loss-1.PNG" alt="3-FR-FaceNet-loss-1.PNG-14.1kB"><br><img src="http://static.zybuluo.com/nej/e35np9odsxu0xy3gz54srpnz/3-FR-FaceNet-triplet-1.PNG" alt="3-FR-FaceNet-triplet-1.PNG-11.4kB"><br>训练时对每一个batch，组成多个不同的3元组（即 Anchor, Positive, Negative），Positive与Anchor代表的是同一个人，Negative代表的是不同的人。Loss函数如上，采用的squear L2 loss,同时$\alpha$代表了margin距离。Loss的目的即通过网络的迭代后，同类别之间的图像欧氏距离+margin&lt;不同类别之间的距离。<br><img src="http://static.zybuluo.com/nej/72p5npal5cbbedmqmmoypcfr/3-FR-FaceNet-Net-1.PNG" alt="3-FR-FaceNet-Net-1.PNG-32.4kB"><br>实验中Batch size 大概1800,同时尽可能保证同一个人有40张图片左右。如何去穷尽的列举一个Batch 中所有的三元组将会有很多，其中某些错误标签可能会影响模型收敛。文章中选取了所有的anchor-positive pairs,在选择anchor-negative pairs上采用了soft hardest的形式，具体如下：<br><img src="http://static.zybuluo.com/nej/xdq52fgqxjvd2ftwmi984eai/3-FR-FaceNet-anchor-negative-1.PNG" alt="3-FR-FaceNet-anchor-negative-1.PNG-5.9kB"><br>对于某一对anchor-positive，选择距离大于其的所有anchor-negative 对。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Recognition by FaceNet/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Recognition by FaceNet/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Face Detection by SSH/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:44.906Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Face-Detection-by-SSH"><a href="#Face-Detection-by-SSH" class="headerlink" title="Face: Detection by SSH"></a>Face: Detection by SSH</h1><p>标签（空格分隔）： paper</p>
-<hr>
-<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1708.03979" target="_blank" rel="noopener">SSH</a>论文全称《SSH: Single Stage Headless Face Detector》，2017年8月份出来的一篇基于SSD结构的一篇人脸检测论文。该论文的<a href="https://github.com/mahyarnajibi/SSH" target="_blank" rel="noopener">code</a>开源在github上，基于pycaffe。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要采用了SSD类似结构直接做人脸的检测以及边框回归，区别于之前的MTCNN那种多级的结构。其次在检测不同Scale人脸方面采用了skip connections结构，即靠前的feature map 接收野小，用于检测较小人脸，靠后的feature map接收野大，检测较大人脸。<br><img src="http://static.zybuluo.com/nej/ys2x1j65p0384sad7rdjjpd2/2-FD-SSH-frame-1.PNG" alt="2-FD-SSH-frame-1.PNG-193.3kB"><br><img src="http://static.zybuluo.com/nej/6ar9epcl1c4mt73s193el9s1/2-FD-SSH-frame-2.PNG" alt="2-FD-SSH-frame-2.PNG-44.5kB"><br>在SSD基础上在feature map上做不同scale人脸的检测与回归。除此之外，模型还做了不少Inception类似的结构做分支以及合并操作，文章称为增大接收野，也就是人脸周边的context信息。<br>feature map上的anchors只有一个比例即1，K个不同的大小。正常情况下训练时feature map M1,M2,M3都可以检测并且回归所有的人脸，但是文章设计3个不同的通道是为了分别检测不同scale的人脸，如何做到这一点了？<br>“To specialize each of the three detection modules for a specific range of scales, we only back-propagate the loss for the anchors which are assigned to faces in the corresponding range. This is implemented by distributing the anchors based on their size to these three modules (i.e. smaller anchors are assigned to M1 compared to M2, and M3). An anchor is assigned to a ground-truth face if and only if it has a higher IoU than 0.5.”<br>从文章中可以看到，在计算anchors与gt的IOU区别pos 和 neg时，预先设定了3个模型能够检测的人脸大小范围，即将gt人脸按照大小分别分给3个模型，然后某个模型的anchors只与分配给它的gt face计算IOU来判定该anchor是pos or neg。其次文章采用OHEM来提高模型准确率。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Detection by SSH/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Detection by SSH/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Face Detection by MTCNN/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T06:05:34.692Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Face-Detection-by-MTCNN"><a href="#Face-Detection-by-MTCNN" class="headerlink" title="Face: Detection by MTCNN"></a>Face: Detection by MTCNN</h1><p>标签（空格分隔）： paper</p>
-<hr>
-<h2 id="1-论文简介"><a href="#1-论文简介" class="headerlink" title="1. 论文简介"></a>1. 论文简介</h2><p><a href="https://arxiv.org/abs/1604.02878" target="_blank" rel="noopener">MTCNN</a>论文全称《Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks》， 2016年4月份出来的一篇人脸检测以及关键点检测的论文。该论文<a href="https://github.com/kpzhang93/MTCNN_face_detection_alignment" target="_blank" rel="noopener">Code</a>在github上公布了基于Caffe以及Matlab接口，并且只有测试部分，没有训练部分。目前github上有一些其他人复现的基于其他平台架构的，比如<a href="https://github.com/davidsandberg/facenet" target="_blank" rel="noopener">FaceNet</a>中有一套基于Tensorflow的，当然也只有测试部分,训练部分需要自己改写。</p>
-<h2 id="2-内容"><a href="#2-内容" class="headerlink" title="2. 内容"></a>2. 内容</h2><p>该论文主要思想有三：</p>
-<pre><code>1. 将Face Detection 和 alignment作为muti-task在一个网络中同时优化，两者的相关性能够促进准确率的提高。
-2. 采用了cascaded multi-task 结构，3级级联结构，每一级单独训练，对人脸以及关键点的检测由粗到细逐步的优化。
-3. 采用了OHEM来提高准确率
-</code></pre><p>具体的网络结构如下：<br><img src="http://static.zybuluo.com/nej/yiosca261nknti1o85x2ca7p/1-FD-MTCNN-PNet.PNG" alt="1-FD-MTCNN-PNet.PNG-44.9kB"><br>P-Net在训练的时候输入的图片大小固定12x12x3，最后输出的feature map大小刚好是1x1，再经过不同的1x1卷积来识别不同task的输出。训练的数据都是offline的预先产生，再去训练P-Net网络。具体的产生过程整体上可以说是随机crop成不同的size，然后与gt计算IOU，根据阈值分为pos，part，neg样本，并且保证三者一定的比例，其中pos和part都还有对应的offset，其中offset值有正有负。由于采用的WiderFace数据集，该数据集没有landmard信息，因此P-Net和后续的O-Net只做了classification和bounding box regression。<br><img src="http://static.zybuluo.com/nej/3s2jsdlu25r0a84rboizrmz6/1-FD-MTCNN-test.PNG" alt="1-FD-MTCNN-test.PNG-657.3kB"><br>P-Net测试以及为后续R-Net准备数据，首先将WiderFace中的训练图片做不同ratio的scale，形成Image pyramid，然后将同一张图片的不同scale图片过P-Net,由于P-Net是一个FCN结构，并且输入的图片不再是12x12，因此最后输出的feature map也不会是1x1，而是NxN,类似于YOLO，SSD。针对同一个scale图片预测出来的所有box做一遍NMS，然后再针对同一张图片的不同scale预测出来的box做一篇NMS，得到该图片P-Net最终的输出结果，bounding box的offset矫正可以放在NMS之前也可以之后，这个需要具体的实践。<br><img src="http://static.zybuluo.com/nej/pykck0azzd2t5c0tezp8ugei/1-FD-MTCNN-RNet.PNG" alt="1-FD-MTCNN-RNet.PNG-46.7kB"><br>R-Net是在P-Net训练好的基础上，将P-Net过一遍WiderFace训练图片，得到P-Net预测的bounding box结果，与P-Net的数据预处理一样，将这些box 与 gt比较计算IOU，根据阈值分为pos，part，neg样本，并且保证三者一定的比例，其中pos和part都还有对应的offset，其中offset值有正有负。将所有的box resize到固定的24x24，训练R-Net。<br>R-Net测试过程与训练过程差不多，将P-Net得到的box结果resize到24x24，过R-Net做修正。<br>注意： 原始gt中侧脸都是采用矩形框标记，而P-Net预测出来的都是正方形的box，在计算IOU得到pos，part，neg样本时容易将侧脸框标记为neg，需要将原始的矩形框扩大成正方形框。<br><img src="http://static.zybuluo.com/nej/6joggba6i3v5gn3krnl53xmj/1-FD-MTCNN-ONet.PNG" alt="1-FD-MTCNN-ONet.PNG-57.7kB"><br>O-Net的训练以及测试过程与R-Net基本一样，唯一不同的是O-Net训练中增加了CeleA数据集的landmark进行训练，同时回归landmark点。<br>注意：在根据R-Net的输出结果为O-Net准备数据时可能会遇到负样本不够的情况，这时需要在原始图片中随机crop一些负样本。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Face Detection by MTCNN/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Face Detection by MTCNN/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2018/02/11/Relion-1.3 User Guide/" title="Relion-1.3 软件使用流程" itemprop="url">Relion-1.3 软件使用流程</a>
@@ -261,9 +123,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网<a href="http://www2.mrc-lmb.cam.ac.uk/groups/scheres/relion13_tutorial.pdf" target="_blank" rel="noopener">relion13_tutorial</a>，这里主要介绍蛋白质3D重构的过程。<br>Relion提供了简单的GUI来方便使用,GUI是使用的<strong>fltk-1.3.0</strong>来设计的。其GUI界面如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png" alt="Relion GUI"><br>下面将采用从官网下载的数据<strong>relion13_tutorial.tar.gz</strong>来做3D 结构重构。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-转换为STAR文件"><span class="toc-number">1.</span> <span class="toc-text">1.2.2 转换为STAR文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-CTF-参数估计"><span class="toc-number"></span> <span class="toc-text">1.3 CTF 参数估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-颗粒挑选"><span class="toc-number"></span> <span class="toc-text">1.4 颗粒挑选</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-人工挑选"><span class="toc-number">1.</span> <span class="toc-text">1.3.1 人工挑选</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-半自动挑选-autopick"><span class="toc-number">2.</span> <span class="toc-text">1.3.2 半自动挑选[^autopick]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-颗粒排序-可选过程"><span class="toc-number"></span> <span class="toc-text">1.5 颗粒排序(可选过程)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步：-Reference-free-2D-class-averaging"><span class="toc-number"></span> <span class="toc-text">第二步： Reference-free 2D class averaging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2D-class-averaging-的作用"><span class="toc-number"></span> <span class="toc-text">2.1 2D class averaging 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-运行时“exceeds-stack-size”错误及解决办法"><span class="toc-number"></span> <span class="toc-text">2.2 运行时“exceeds stack size”错误及解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-运行2D-classification"><span class="toc-number"></span> <span class="toc-text">2.3 运行2D classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：-Unsupervised-3D-classification"><span class="toc-number"></span> <span class="toc-text">第三步： Unsupervised 3D classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-目的"><span class="toc-number"></span> <span class="toc-text">3.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-运行结果"><span class="toc-number"></span> <span class="toc-text">3.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四步：High-resolution-3D-refinement"><span class="toc-number"></span> <span class="toc-text">第四步：High-resolution 3D refinement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-目的"><span class="toc-number"></span> <span class="toc-text">4.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-运行结果"><span class="toc-number"></span> <span class="toc-text">4.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五步：-Postprocessing"><span class="toc-number"></span> <span class="toc-text">第五步： Postprocessing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六步：-Local-resolution-estimation"><span class="toc-number"></span> <span class="toc-text">第六步： Local-resolution estimation</span></a>
+		
+		</div>
+		
+		<p>这里将会详细的介绍Relion软件使用的流程，每个任务具体的参数设定参考官网<a href="http://www2.mrc-lmb.cam.ac.uk/groups/scheres/relion13_tutorial.pdf" target="_blank" rel="noopener">relion13_tutorial</a>，这里主要介绍蛋白质3D重构的过程。<br>Relion提供了简单的GUI来方便使用,GUI是使用的<strong>fltk-1.3.0</strong>来设计的。其GUI界面如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/GUI_Relion.png" alt="Relion GUI"><br>下面将采用从官网下载的数据<strong>relion13_tutorial.tar.gz</strong>来做3D 结构重构。</p>
 <p>##第一步：数据预处理</p>
 <p>###1.1 初始数据<br>给的初始数据是15张电镜下拍到的原始大图片，格式是<code>.mrc</code>的，其次还包含15个<code>.mrcs</code>的movie图片。Relion中单张图片是以<code>.mrc</code>存储的，多张图片是以<code>.mrcs</code>存储。<br>原始的<code>.mrc</code>中单张<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" target="_blank" rel="noopener">图片33_35</a>显示如下：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrc.png" alt="14-33-35-0-mrc"><br>原始的<code>.mrcs</code>中movie的<a href="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" target="_blank" rel="noopener">图片33_35</a>如下,可以暂时不管这个movie的图片：<br><img src="http://7u2kdd.com1.z0.glb.clouddn.com/S-original-33-35-0-mrcs.png" alt="此处输入图片的描述"></p>
 <p>###1.2 准备数据</p>
@@ -370,14 +239,9 @@ with errorcode 1.
 <p>[^ximdisp]: J M Smith. Ximdisp–a visualization tool to aid structure determination<br>from electron microscope images. Journal of structural biology, 125(2-<br>3):223–228, May 1999.</p>
 <p>[^xmipp]: Sjors H W Scheres, R. Nunez-Ramirez, C. O. S Sorzano, J. M Carazo,<br>and R. Marabini. Image processing for electron microscopy single-particle<br>analysis using XMIPP. Nature Protocols, 3(6):977–90, 2008.</p>
 <p>[^e2boxer]: Guang Tang, Liwei Peng, Philip R Baldwin, Deepinder S Mann, Wen Jiang,<br>Ian Rees, and Steven J Ludtke. EMAN2: an extensible image processing<br>suite for electron microscopy. Journal of Structural Biology, 157(1):38–46,<br>January 2007.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -385,88 +249,61 @@ with errorcode 1.
 
 
 
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://nejyeah.github.io/2018/02/11/Relion-1.3 User Guide/" data-title="Relion-1.3 软件使用流程 | Fendrew" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
 
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/02/11/Relion-1.3 User Guide/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Relion-1.3 User Guide/" data-count-type="comments">&nbsp;</a>
-	
-</div>
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/02/11/Hello World/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Feng Wang" target="_blank" itemprop="author">Feng Wang</a>
-		
-  <p class="article-time">
-    <time datetime="2018-02-11T03:17:10.458Z" itemprop="datePublished"> 发表于 2018-02-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
-	  	<span></span>
-		<a href="/2018/02/11/Hello World/#comments" class="ds-thread-count comments-count-link" data-thread-key="2018/02/11/Hello World/" data-count-type="comments">&nbsp;</a>
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/02/11/Face Detection by MTCNN/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/02/11/Hello World/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
 	
-</div>
-
-</footer>
-
-
-    </article>
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/02/11/Relion-1.3 User Guide/" data-title="Relion-1.3 软件使用流程" data-url="http://nejyeah.github.io/2018/02/11/Relion-1.3 User Guide/"></div>
+</section>
 
 
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-转换为STAR文件"><span class="toc-number">1.</span> <span class="toc-text">1.2.2 转换为STAR文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-CTF-参数估计"><span class="toc-number"></span> <span class="toc-text">1.3 CTF 参数估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-颗粒挑选"><span class="toc-number"></span> <span class="toc-text">1.4 颗粒挑选</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-人工挑选"><span class="toc-number">1.</span> <span class="toc-text">1.3.1 人工挑选</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-半自动挑选-autopick"><span class="toc-number">2.</span> <span class="toc-text">1.3.2 半自动挑选[^autopick]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-颗粒排序-可选过程"><span class="toc-number"></span> <span class="toc-text">1.5 颗粒排序(可选过程)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步：-Reference-free-2D-class-averaging"><span class="toc-number"></span> <span class="toc-text">第二步： Reference-free 2D class averaging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2D-class-averaging-的作用"><span class="toc-number"></span> <span class="toc-text">2.1 2D class averaging 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-运行时“exceeds-stack-size”错误及解决办法"><span class="toc-number"></span> <span class="toc-text">2.2 运行时“exceeds stack size”错误及解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-运行2D-classification"><span class="toc-number"></span> <span class="toc-text">2.3 运行2D classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：-Unsupervised-3D-classification"><span class="toc-number"></span> <span class="toc-text">第三步： Unsupervised 3D classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-目的"><span class="toc-number"></span> <span class="toc-text">3.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-运行结果"><span class="toc-number"></span> <span class="toc-text">3.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四步：High-resolution-3D-refinement"><span class="toc-number"></span> <span class="toc-text">第四步：High-resolution 3D refinement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-目的"><span class="toc-number"></span> <span class="toc-text">4.1 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-运行结果"><span class="toc-number"></span> <span class="toc-text">4.2 运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五步：-Postprocessing"><span class="toc-number"></span> <span class="toc-text">第五步： Postprocessing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六步：-Local-resolution-estimation"><span class="toc-number"></span> <span class="toc-text">第六步： Local-resolution estimation</span></a>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -588,15 +425,124 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"nejyeah"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'fengwang';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
 
 
 
@@ -673,4 +619,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
